@@ -1,0 +1,31 @@
+﻿@using Asp.netHomework3ProductTable.Models;
+@model Asp.netHomework3ProductTable.Models.ViewProducts
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Adi</th>
+            <th>Sayi</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Products)
+        {
+            int count = item.Count.Value;
+            <tr class="@(count==0 ? "qirmizi" :count <=10 ? "sari" : "goy")">
+                <td>@item.Id</td>
+          
+                <td>@item.Name</td>
+                <td>@item.Count</td>
+               
+            </tr>
+        }
+    </tbody>
+</table>
